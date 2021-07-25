@@ -6,7 +6,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 
-load_dotenv('.env')
+load_dotenv()
 
 class OcTranspoBusTimes(MycroftSkill):
     def __init__(self):
@@ -16,7 +16,7 @@ class OcTranspoBusTimes(MycroftSkill):
     def handle_times_bus_transpo_oc(self, message):
         
         stopNumber = self.get_response('ask.for.stop.no')
-        url = 'https://api.octranspo1.com/v2.0/GetNextTripsForStop?appID=' + os.getenv('APPID') + '&apiKey=' + os.getenv('APIKEY') + '&stopNo=' + stopNumber
+        url = 'https://api.octranspo1.com/v2.0/GetNextTripsForStop?appID=' + self.settings.get('AppID') + '&apiKey=' + self.settings.get('APIKey') + '&stopNo=' + stopNumber
         response = requests.get(url).json()
         self.speak_dialog('Here are the bus arrival times for stop number' + stopNumber)
         
