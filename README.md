@@ -4,8 +4,10 @@ Informs the user when busses are coming for a certain stop.
 ## About
 Informs the user when busses are coming for a certain stop.
 
-## Examples
-* "When does the bus come for stop number 1002?"
+## Dialogue Example
+* "Get bus arrival times"
+
+"Sure, for which stop number?"
 
 ## Credits
 Ryan Loi
