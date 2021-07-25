@@ -18,4 +18,7 @@ Then on your MyCroft skill settings page for this skill, paste in the App ID as 
 ## Category
 **Transport**
 
+## Disclaimer
+
+All data is provided by OC Transpo. Although they try their best to update it in real time, the accuracy of the data is not always guaranteed. I am not affiliated with OC Transpo nor with their services provided.
 
