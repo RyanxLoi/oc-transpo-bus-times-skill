@@ -6,6 +6,8 @@ In order to use this skill, you will need an App ID and an API Key to access OC 
 
 Then on your MyCroft skill settings page for this skill, paste in the App ID as well as the API key.
 
+![settings](./settings.png)
+
 ## Dialogue Example
 **User:** "[Wake word], Get bus arrival times"
 
