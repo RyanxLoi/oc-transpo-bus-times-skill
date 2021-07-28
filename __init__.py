@@ -18,7 +18,7 @@ class OcTranspoBusTimes(MycroftSkill):
         stopNumber = self.get_response('ask.for.stop.no')
         url = 'https://api.octranspo1.com/v2.0/GetNextTripsForStop?appID=' + self.settings.get('AppID') + '&apiKey=' + self.settings.get('APIKey') + '&stopNo=' + stopNumber
         response = requests.get(url).json()
-        self.speak_dialog('Here are the bus arrival times for stop number' + stopNumber)
+        self.speak_dialog('Here are the bus arrival times for stop number ' + stopNumber)
         
 
         for i in range(0,(len(response.get('GetNextTripsForStopResult'))-2)):
