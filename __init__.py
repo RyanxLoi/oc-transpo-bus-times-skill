@@ -27,8 +27,23 @@ class OcTranspoBusTimes(MycroftSkill):
             self.speak_dialog('The ' + routeNo + " " + routeLabel + " comes in approximately ")
             for j in range(0,len(response.get('GetNextTripsForStopResult').get('Route').get('RouteDirection')[i].get('Trips').get('Trip'))):
                 estMinutes = response.get('GetNextTripsForStopResult').get('Route').get('RouteDirection')[i].get('Trips').get('Trip')[j].get('AdjustedScheduleTime')
+                hours = 0
+                if int(estMinutes) > 60:
+                    hours = int(estMinutes) // 60
+                    minutes = int(estMinutes) - (60 * hours)
                 estTimeArrival = datetime.now() + timedelta(minutes=int(estMinutes))
-                self.speak_dialog(estMinutes + " minutes at " + estTimeArrival.strftime("%H:%M"))
+                if hours == 1:
+                    if minutes == 1:
+                        self.speak_dialog(str(hours) + " hour and " + str(minutes) + " minute at " + estTimeArrival.strftime("%H:%M"))
+                    else:
+                        self.speak_dialog(str(hours) + " hour and " + str(minutes) + " minutes at " + estTimeArrival.strftime("%H:%M"))
+                elif hours > 1:
+                    if minutes == 1:
+                        self.speak_dialog(str(hours) + " hours and " + str(minutes) + " minute at " + estTimeArrival.strftime("%H:%M"))
+                    else:
+                        self.speak_dialog(str(hours) + " hours and " + str(minutes) + " minutes at " + estTimeArrival.strftime("%H:%M"))
+                else:
+                    self.speak_dialog(estMinutes + " minutes at " + estTimeArrival.strftime("%H:%M"))
 
 def create_skill():
     return OcTranspoBusTimes()
